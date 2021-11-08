@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smoke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smokeclassifier
+  template:
+    metadata:
+      labels:
+        app: smokeclassifier
+    spec:
+      containers:
+      - name: smokeclassifier-app
+        image: us-west1-docker.pkg.dev/affable-beach-268518/smoke/smokeconv1
+        ports:
+        - containerPort: 8080
+        env:
+          - name: PORT
+            value: "8080"
