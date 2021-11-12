@@ -14,8 +14,8 @@ def upload():
         uploaded_file = request.files.get('file')
         if not uploaded_file:
             return 'No file uploaded.', 400
-        upload_images(uploaded_file)
-    return redirect("/")
+        prediction,url = upload_images(uploaded_file)
+    return render_template('output.html', x= prediction, y=url)
 
 
 if __name__ == '__main__':
