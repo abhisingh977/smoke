@@ -1,6 +1,5 @@
 from ImageManager import ImageManager
 import urllib
-import cv2
 from PIL import Image
 from io import BytesIO
 import requests
