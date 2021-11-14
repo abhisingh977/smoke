@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: smokeclassifier-app
-        image: us-west4-docker.pkg.dev/affable-beach-268518/smoker/smoker
+        image: us-west1-docker.pkg.dev/affable-beach-268518/smoke/smoker
         ports:
         - containerPort: 8080
         env:

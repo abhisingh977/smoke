@@ -42,7 +42,7 @@ def predict(url, filename):
     except:
         urllib.request.urlretrieve(url, filename)
 
-    image = Image.fromarray(cv2.imread(filename))
+    image = Image.fromarray(Image.open(filename))
     image2bytes = BytesIO()
     image.save(image2bytes, format="PNG")
     image2bytes.seek(0)
@@ -50,7 +50,7 @@ def predict(url, filename):
 
 # Send the HTTP POST request to TorchServe
 
-    req = requests.post("http://35.230.109.206/predictions/smoke", data=image_as_bytes)
+    req = requests.post("http://35.230.109.206:8080/predictions/smoke", data=image_as_bytes)
     if req.status_code == 200:
         res = req.json()
         res = pre(res)
