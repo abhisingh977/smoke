@@ -3,7 +3,7 @@ import urllib
 from PIL import Image
 from io import BytesIO
 import requests
-
+import numpy
 ALLOWED_EXTENSIONS = {'tif', 'png', 'jpg', 'jpeg', 'gif'}
 ImageManager = ImageManager()
 bucket = ImageManager.bucket()
@@ -41,7 +41,7 @@ def predict(url, filename):
     except:
         urllib.request.urlretrieve(url, filename)
 
-    image = Image.fromarray(Image.open(filename))
+    image = Image.fromarray(numpy.uint8(Image.open(filename)))
     image2bytes = BytesIO()
     image.save(image2bytes, format="PNG")
     image2bytes.seek(0)

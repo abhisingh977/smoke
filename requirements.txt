@@ -3,3 +3,4 @@ google-cloud-storage==1.42.2
 firebase_admin
 gunicorn==20.0.4
 Pillow
+numpy
