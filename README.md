@@ -6,13 +6,13 @@ pip install Pillow
 
 
 
-Building the container image - gcloud builds submit --tag gcr.io//complaintsapi .
+gcloud builds submit --tag us-west4-docker.pkg.dev/.../ .
 
-List the image - gcloud builds list --filter complaints
+gcloud builds list --filter complaints
 
-Checking logs of built image - gcloud builds log
+gcloud builds log
 
-Create Kubernetes Cluster - gcloud container clusters create complaints-gke --zone "us-west1-b" --machine-type "n1-standard-1" --num-nodes "1" --service-account srivatsan-gke@srivatsan-project.iam.gserviceaccount.com (Change to your service account)
+gcloud container clusters create ....-gke --zone "us-west1-b" --machine-type "n1-standard-1" --num-nodes "1" --service-account .....................  (Change to your service account)
 
 Create Kubernetes Deployment - kubectl apply -f deployment.yaml
 
@@ -28,7 +28,7 @@ Create service for deployment - kubectl apply -f service.yaml
 
 Get service details - kubectl get services
 
-Add nodes to cluster - gcloud container clusters resize complaints-gke --num-nodes 3 --zone us-west1-b
+Add nodes to cluster - gcloud container clusters resize ...-gke --num-nodes 3 --zone us-west1-b
 
 Get details on cluster - gcloud container clusters list
 
